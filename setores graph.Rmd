@@ -1,0 +1,37 @@
+---
+title: "Gráfico de setor"
+author: "Luíza de Oliveira Machado Pinto"
+date: "Estatística é com R"
+output: html_document
+---
+Sejam bem-vindos ao Estatística é com R!
+No video de hoje, iremos estudar como se faz  um **gráfico de setores**. O gráfico de setores ou gráfico de Pizza, é um diagrama circular em que os valores de cada categoria estatística representada são proporcionais às respectivas medidas dos ângulos.
+
+Hoje vamos usar um exemplo, utilizando o nivel de escolaridade de um determinado grupo de alunos.
+
+*Podemos observar que o objeto alunos foi criado ,  em seguida utilizamos o comando pie para criar o gráfico.*
+
+```{r Pie01}
+alunos <- c(1000, 650, 250)
+names(alunos) <- c("Fundamental", "Médio", "Superior")
+pie(alunos)
+
+```
+
+*Para adicionar o título, coloque o comando title e o título entre aspas ou adicionamos o comando main dentro da função pie.* 
+
+```{r Pie02}
+# Para adicionar título ao gráfico
+title("Grau de escolaridade")
+
+# OU: 
+pie(alunos, main = "Grau de escolaridade")
+```
+
+*Para adicionar porcentagem ao nosso gráfico criamos o objeto porc usando a função round, que arredonda a porcentagem para dois dígitos, logo após criamos o objeto rótulo adicionando o símbolo de porcentagem com a função paste, em seguida dentro da função pie alocamos o argumento labels igual ao objeto rótulo. para acrescentar a legenda utilize a função legend
+
+
+
+
+
+
