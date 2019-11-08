@@ -6,7 +6,7 @@ output: html_document
 ---
 ## Roteiro
 Sejam bem-vindos ao Estatística é com R!
-No video de hoje, iremos estudar como se faz  um **gráfico de barras**.
+No video de hoje, iremos estudar como se faz  um **gráfico de barras**.O gráfico de barras é um gráfico com barras retangulares e comprimento proporcional aos valores que ele representa.
 
 
 
