@@ -31,7 +31,80 @@ pie(alunos, main = "Grau de escolaridade")
 *Para adicionar porcentagem ao nosso gráfico criamos o objeto porc usando a função round, que arredonda a porcentagem para dois dígitos, logo após criamos o objeto rótulo adicionando o símbolo de porcentagem com a função paste, em seguida dentro da função pie alocamos o argumento labels igual ao objeto rótulo. para acrescentar a legenda utilize a função legend
 
 
+########################################################################################################################################
+
+
+---
+title: "Gráfico de Setores"
+author: "Juliany Moura"
+date: "Estatística é com R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Roteiro
+
+Sejam bem vindos ao "Estatística é com R"! 
+
+No vídeo de hoje iremos aprender a fazer um **gráfico de setores**. Também conhecido como gráfico de pizza, o gráfico é formado por setores circulares,onde o ângulo de cada setor circular corresponde a porcentagem de seu dado. Logo, um setor circular de 360° equivale a soma de 100% dos dados. 
+
+Para a vídeo aula de hoje, vamos usar o seguinte exemplo: Quantidade de alunos de cada nível escolar.
+
+*Criaremos um objeto alunos para guardar a quantidade de alunos em seus respectivos níveis de escolaridade .*
+*É importante lembrar que neste vídeo iremos abordar comandos do R Básico. Logo, para criar um gráfico de setores basta usar o comando pie().*
+
+```{r alunos}
+alunos <- c(1000, 650, 250)
+names(alunos) <- c("Fundamental", "Médio", "Superior")
+pie(alunos)
+title("Grau de escolaridade")
+```
+
+
+*Observe que para adicionarmos um título ao gráfico utilizamos o comando title(), mas também poderíamos utilizar o próprio comando pie() acompanhado do main, no caso ficaria pie(alunos, main = "Grau de escolaridade")*
+
+**title("Grau de escolaridade")**     OU      **pie(alunos, main = "Grau de escolaridade")**
+
+
+*Para adicionarmos título com legenda, primeiramente devemos tratar alguns dados, para adicionar porcentagem ao nosso gráfico criamos o objeto porc usando a função round, que arredonda a porcentagem para dois dígitos, logo após criamos o objeto rótulo adicionando o símbolo de porcentagem com a função paste, em seguida dentro da função pie alocamos o argumento labels igual ao objeto rótulo. para acrescentar a legenda utilize a função legend*
+
+```{r set01}
+porc <- round(alunos*100/sum(alunos), 2) # arredonda a porcentagem para 2 dígitos
+rotulos <- paste("(", porc, "%)", sep = "") # Adiciona símbolo de porcentagem
+pie(alunos, main = "Grau de escolaridade", labels = rotulos, col = rainbow(8))
+legend(1, 1, names(alunos), col = rainbow(8), pch = rep(20, 6))
+```
+
+
+*Para alterar tamanho da fonte, vamos incluir o argumento cex; faremos duas alterações: cex = 0.8 no gráfico e cex = 0.7 na legenda. * 
+
+```{r set02}
+rotulos <- paste("(", porc, "%)", sep = "")
+pie(alunos, main = "Grau de escolaridade", labels = rotulos, cex = 0.8, col = rainbow(8))
+legend(1, 1, names(alunos), col = rainbow(8), pch = rep(20,6), cex = 0.7)
+```
 
 
 
+**Para alterar tamanho da fonte do título, vamos incluir o argumento cex.main; em nossa alteração utilizaremos cex.main = 1.5**
 
+```{r set03}
+pie(alunos, main = "Grau de escolaridade", cex.main = 1.5)
+```
+
+
+**Para alterar tamanho da fonte dos nomes das variáveis, também utilizaremos o argumento cex; neste caso, cex = 0.5**
+
+```{r set04}
+pie(alunos, cex = 0.5)
+```
+
+
+**Para girar o gráfico utilizaremos o argumento init.angle; onde 90 é o ângulo em que o gráfico irá girar.**
+
+```{r set05}
+pie(alunos, main= "Grau de escolaridade", init.angle = 90)
+```
